@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	var nextButton = document.createElement("button");
+	nextButton.innerHTML = "Next";
+
+	var prevButton = document.createElement("button");
+	prevButton.innerHTML = "Prev";
+
+	
+	var korn1 = document.createElement("img");
+	korn1.setAttribute("src", "http://ksassets.timeincuk.net/wp/uploads/sites/55/2016/10/KORN_DeanKarr_PresShot2_2016_25553901_142036562.jpg");
+	korn1.setAttribute("width", "500");
+	document.body.appendChild(korn1);
+
+	var korn2 = document.createElement("img");
+	korn2.setAttribute("src", "http://official.korn.com.stage15.535e.blackmesh.com/wp-content/themes/official-korn/assets/images/header_banner.jpg");
+	korn2.setAttribute("width", "500");
+
+	var korn3 = document.createElement("img");
+	korn3.setAttribute("src", "https://upload.wikimedia.org/wikipedia/ru/a/a9/Korn_logo.png");
+	korn3.setAttribute("width", "500");
+
+	var imagesCollection = [korn1, korn2, korn3];
+	var sourceOfImages = ["http://ksassets.timeincuk.net/wp/uploads/sites/55/2016/10/KORN_DeanKarr_PresShot2_2016_25553901_142036562.jpg", "http://official.korn.com.stage15.535e.blackmesh.com/wp-content/themes/official-korn/assets/images/header_banner.jpg", "https://upload.wikimedia.org/wikipedia/ru/a/a9/Korn_logo.png"];
+
+	var clickCondition = 0;
+
+	function nextClick () {
+		clickCondition++;
+		if (clickCondition > 2) {
+			clickCondition = 0;
+			korn1.setAttribute("src", sourceOfImages[clickCondition]);
+		}
+		else{
+			korn1.setAttribute("src", sourceOfImages[clickCondition]);
+		}
+						
+	}
+
+
+	function prevClick(){
+		clickCondition--;
+		if (clickCondition < 0) {
+			clickCondition = 2;
+			korn1.setAttribute("src", sourceOfImages[clickCondition]);
+		}
+		else{
+			korn1.setAttribute("src", sourceOfImages[clickCondition]);
+		}
+	}
+
+
+	document.body.appendChild(prevButton);
+	document.body.appendChild(nextButton);
+	nextButton.addEventListener("click", nextClick);
+	prevButton.addEventListener("click", prevClick);
+</script>
+</body>
+</html>
